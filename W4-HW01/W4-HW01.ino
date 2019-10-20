@@ -1,10 +1,10 @@
 const int led_RED = 13;
 const int led_GREEN = 12;
 const int led_YELLOW = 8;
-unsigned long l1,l2,l3,l4;
-unsigned long in_R = 1000;
-unsigned long in_G = 2000;
-unsigned long in_Y = 3000;
+unsigned long l1,l2,l3,l4,l5,l6;
+unsigned long in_R = 2000;
+unsigned long in_G = 4000;
+unsigned long in_Y = 6000;
 int fON_RED = 0;
 int fON_GREEN = 0;
 int fON_YELLOW = 0;
@@ -15,15 +15,18 @@ void setup() {
   pinMode(led_GREEN, OUTPUT);
   pinMode(led_YELLOW, OUTPUT);
   l1 = 0;
-  l2 = 0;
   l3 = 0;
+  l5 = 0;
+  
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
+  l2 = millis();
   l4 = millis();
-  if(l4 - l1 >= in_R) {
-    l1 = l4;
+  l6 = millis();
+  if(l2 - l1 >= in_R) {
+    l1 = l2;
 
     if(!fON_RED) {
       fON_RED = HIGH;
@@ -33,8 +36,8 @@ void loop() {
     digitalWrite(led_RED, fON_RED);
   }
 
-  if(l4 - l2 >= in_G) {
-    l2 = l4;
+  if(l4 - l3 >= in_G) {
+    l3 = l4;
 
     if(!fON_GREEN) {
       fON_GREEN = HIGH;
@@ -44,8 +47,8 @@ void loop() {
     digitalWrite(led_GREEN, fON_GREEN);
   }
 
-  if(l4 - l3 >= in_Y) {
-    l3 = l4;
+  if(l6 - l5 >= in_Y) {
+    l5 = l6;
 
     if(!fON_YELLOW) {
       fON_YELLOW = HIGH;

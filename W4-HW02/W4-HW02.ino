@@ -2,7 +2,7 @@ int led = 11;
 int g = 0;
 unsigned long l1,l2;
 unsigned long interval = 40;
-int fDir = 0, fade = 0;
+int fDir_R = 0, fade_R = 0;
 void setup() {
   // put your setup code here, to run once:
   l1 = 0;
@@ -13,14 +13,14 @@ void loop() {
   l2 = millis();
   if(l2 - l1 >= interval) {
     l1 = l2;
-    if(!fDir) {
-      fade += 5;
-      if(fade > 255) {
-        fade = 255; fDir = 1; }
+    if(!fDir_R) {
+      fade_R += 5;
+      if(fade_R > 255) {
+        fade_R = 255; fDir_R = 1; }
     }else {
-      fade -= 5;
-      if(fade < 0) {
-        fade = 0; fDir = 0;
+      fade_R -= 5;
+      if(fade_R < 0) {
+        fade_R = 0; fDir_R = 0;
         if(led == 11) {
           led--;
           g = 0;
@@ -36,7 +36,7 @@ void loop() {
           }
         }
     }
-    analogWrite(led, fade);
+    analogWrite(led, fade_R);
     
   }
 }

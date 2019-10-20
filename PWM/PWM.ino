@@ -7,15 +7,15 @@ void setup() {
 
 void loop() {
   
-  for(int i = 0; i < 230; i +=5) {
+  for(int i = 0; i < 255; i +=5) {
     analogWrite(led_pwm, i);
-    delay(10);
+    delay(20);
     analogWrite(led_G, i);
   }
 
-  for(int i = 235; i > 0; i -=5) {
+  for(int i = 255; i > 0; i -=5) {
     analogWrite(led_pwm, i);
-    delay(10);
+    delay(40);
     analogWrite(led_G, i);
   }
 
